@@ -1,0 +1,73 @@
+.second {
+  background-color: #f8f9fa;
+  height: auto;
+  width: auto;
+  border-radius: 0px 0px 5px 0px;
+  text-align: center;
+}
+
+.title3 {
+  width: auto;
+  font-weight: 600;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 20px 0px 20px;
+}
+.title3 > .plan {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.title3 > .plan:hover {
+  font-weight: 600;
+  color: #5f3dc4;
+  cursor: pointer;
+}
+.content {
+  font-size: 18px;
+  margin: auto;
+  width: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.content > .boldText {
+  font-weight: 600;
+  color: #5f3dc4;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background: linear-gradient(45deg, #74fcd5, #23b8bd);
+}
+table > thead > tr > th:first-child {
+  border: 1px solid white;
+  color: white;
+}
+table > thead > tr > th {
+  border: 1px solid white;
+  color: white;
+}
+
+table td {
+  border: 1px solid white;
+  background-color: wheat;
+}
+
+table td:hover {
+  border: 1px solid white;
+  background-color: wheat;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chartBox {
+  margin: auto;
+  width: 500px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}

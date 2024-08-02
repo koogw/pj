@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>koogw</title>
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="todolist.css" />
+  </head>
+  <body>
+    <div>
+      <div>
+        <h1 class="title">Todo List</h1>
+      </div>
+      <div>
+        <nav id="topMenu">
+          <ul>
+            <li>
+              <a class="menulink" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="menulink" href="profile.html">Profile</a>
+            </li>
+            <li>
+              <a class="menulink" href="gallery.html">Gallery</a>
+            </li>
+            <li>
+              <a class="menulink" href="study.html">Study</a>
+            </li>
+            <li>
+              <a class="menulink" href="todolist.html">Todolist</a>
+            </li>
+            <li>
+              <a class="menulink" href="management.html">Management</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div style="background-color: antiquewhite">
+        <div class="container">
+          <input
+            type="text"
+            id="todoInput"
+            placeholder="해야 할 일을 입력해주세요"
+            style="border-radius: 10px"
+          />
+          <button onclick="addTodo()">Add Todo</button>
+          <ul id="todoList"></ul>
+        </div>
+        <script>
+          function addTodo() {
+            const input = document.getElementById('todoInput');
+            const todoText = input.value.trim();
+            if (todoText === '') return;
+
+            const li = document.createElement('li');
+            li.textContent = todoText;
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function () {
+              li.remove();
+            };
+            li.appendChild(deleteButton);
+            document.getElementById('todoList').appendChild(li);
+            input.value = '';
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

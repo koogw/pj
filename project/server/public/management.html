@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나만의 홈페이지 - 관리</title>
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="management.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="comments.js" defer></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Welcome To My HomePage</h1>
+        <nav id="topMenu">
+            <ul>
+                <li><a class="menulink" href="index.html">Home</a></li>
+                <li><a class="menulink" href="profile.html">Profile</a></li>
+                <li><a class="menulink" href="gallery.html">Gallery</a></li>
+                <li><a class="menulink" href="study.html">Study</a></li>
+                <li><a class="menulink" href="todolist.html">Todolist</a></li>
+                <li><a class="menulink" href="management.html">Management</a></li>
+            </ul>
+        </nav>
+
+        <form action="save_ko.php">
+            <label for="fname">이름</label>
+            <input type="text" required /> <br />
+            <label for="fname">부서</label>
+            <input type="text" required /> <br />
+            <label for="fname">직책</label>
+            <input type="text" required /> <br />
+            <label for="fname">사진</label>
+            <input type="file" accept="image/*" required />
+            <br />
+            <input type="button" value="새 사원 추가" style="background-color: skyblue;" />
+        </form>
+        <hr />
+        
+        <table id="employeeTable" border="1" cellspacing="1" width="100%">
+            <tr style="background-color: mediumturquoise;">
+                <td><input type="checkbox" /></td>
+                <td>번호</td>
+                <td width="30%">사진</td>
+                <td width="15%">사원명</td>
+                <td width="15%">부서</td>
+                <td width="7%">직급</td>
+            </tr>
+            <tr>
+                <td rowspan="3" valign="top"><input type="checkbox" /></td>
+                <td rowspan="3" valign="top">1043</td>
+                <td><img src="./sky.jfif" alt="" width="200px" height="100px" /></td>
+                <td align="left" valign="top">홍길동</td>
+                <td align="left" valign="top">개발</td>
+                <td align="left" valign="top">대리</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <table border="0" cellspacing="1" width="100%">
+                        <thead>
+                            <tr align="center">
+                                <td>번호</td>
+                                <td>댓글 내용</td>
+                                <td>작성자</td>
+                                <td>수정</td>
+                                <td>삭제</td>
+                            </tr>
+                        </thead>
+                        <tbody id="comment"></tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center">
+                    댓글 <input type="text" id="commentTxt" required /> 작성자 <input type="text" id="nameTxt" required /> <button type="button" id="commentBtn">댓글입력</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

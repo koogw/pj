@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>koogw</title>
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="mainpage.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery 추가 -->
+</head>
+<body>
+    <div>
+        <div>
+            <h1 class="title">Welcome To My HomePage</h1>
+        </div>
+        <div>
+            <nav id="topMenu">
+                <ul>
+                    <li><a class="menulink" href="index.html">Home</a></li>
+                    <li><a class="menulink" href="profile.html">Profile</a></li>
+                    <li><a class="menulink" href="gallery.html">Gallery</a></li>
+                    <li><a class="menulink" href="study.html">Study</a></li>
+                    <li><a class="menulink" href="todolist.html">Todolist</a></li>
+                    <li><a class="menulink" href="management.html">Management</a></li>
+                </ul>
+            </nav>
+        </div>
+        <section class="header">
+            <div class="title2"></div>
+        </section>
+
+        <button id="loadBtn">Load Todo List</button>
+        <ul id="todoListArea"></ul> <!-- 추가된 부분: 할 일 목록을 보여줄 리스트 -->
+
+        <script>
+            document.querySelector("#loadBtn").addEventListener('click', function() {
+                $.ajax({
+                    method: "GET",
+                    url: "http://localhost:3000/index",
+                    success: function(data) {
+                        const todoListArea = document.querySelector('#todoListArea');
+                        todoListArea.innerHTML = ''; // 리스트 초기화
+                        data.forEach(todo => {
+                            const liElement = document.createElement("li");
+                            liElement.innerHTML = todo.title;
+                            todoListArea.appendChild(liElement);
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error fetching todo list:", error);
+                        alert("Failed to load todo list.");
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
